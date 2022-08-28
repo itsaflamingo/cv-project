@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-class personalInfo extends Component {
+class PersonalInfo extends Component {
 
     constructor() {
         super()
@@ -13,17 +13,22 @@ class personalInfo extends Component {
                   phone: '',
                   address: ''
                 },
-                infoArr: []
+                infoObj: {
+                    name: '',
+                    email: '',
+                    phone: '',
+                    address: ''
+                }
               }
         }
     }
 
-    handleInfoChange = () => {
+    handleChange = () => {
         const nameField = (e) => {
             this.setState({
               personalInfo: {
                 input: {
-                  name: this.state.personalInfo.input.name,
+                  name: e.target.value,
                 }
               }
           })
@@ -32,7 +37,7 @@ class personalInfo extends Component {
             this.setState({
               personalInfo: {
                 input: {
-                  email: this.state.personalInfo.input.email,
+                  email: e.target.value,
                 }
               }
           })
@@ -41,7 +46,7 @@ class personalInfo extends Component {
           this.setState({
             personalInfo: {
               input: {
-                phone: this.state.personalInfo.input.phone,
+                phone: e.target.value,
               }
             }
         })
@@ -51,7 +56,7 @@ class personalInfo extends Component {
           this.setState({
             personalInfo: {
               input: {
-                address: this.state.personalInfo.input.address,
+                address: e.target.value,
               }
             }
         })
@@ -66,40 +71,52 @@ class personalInfo extends Component {
         
       }
     
-    onSubmitInfoTask = () => {
-        const nameField = (e) => {
+    onSubmit = () => {
+        const nameField = () => {
             this.setState({
+            infoObj: {
+                name: this.state.personalInfo.name
+            },
             personalInfo: {
                 input: {
-                    name: this.state.personalInfo.input.name,
+                    name: '',
                 }
             }
             })
         }
-        const emailField = (e) => {
+        const emailField = () => {
             this.setState({
+                infoObj: {
+                    email: this.state.personalInfo.email
+                },
                 personalInfo: {
                     input: {
-                    email: this.state.personalInfo.input.email,
+                    email: '',
                     }
                 }
             })
         }
-        const phoneField = (e) => {
+        const phoneField = () => {
             this.setState({
                 personalInfo: {
+                infoObj: {
+                    phone: this.state.personalInfo.phone
+                },
                 input: {
-                    phone: this.state.personalInfo.input.phone,
+                    phone: '',
                 }
                 }
             })
         }
         
-        const addressField = (e) => {
+        const addressField = () => {
             this.setState({
                 personalInfo: {
+                infoObj: {
+                    address: this.state.personalInfo.address
+                },
                 input: {
-                    address: this.state.personalInfo.input.address,
+                    address: '',
                 }
                 }
             })
@@ -113,4 +130,50 @@ class personalInfo extends Component {
       }
     }
 
+    render() {
+        const {personalInfo} = this.state;
+
+        return (
+            <div className='personalInfoForm'>
+            <form onSubmit={this.onSubmit}>
+                <label htmlFor='nameInput'>
+                    Name
+                    <input 
+                        onChange={(e) => this.handleChange().nameField(e)}
+                        type='text' 
+                        id='nameInput'
+                        value={personalInfo.input.name} />
+                </label>
+                <label htmlFor='emailInput'>
+                    Email
+                    <input 
+                        onChange={(e) => this.handleChange().emailField(e)}
+                        type='text' 
+                        id='emailInput'
+                        value={personalInfo.input.email} />
+                </label>
+                <label htmlFor='phoneInput'>
+                    Phone
+                    <input 
+                        onChange={(e) => this.handleChange().phoneField(e)}
+                        type='text' 
+                        id='phoneInput'
+                        value={personalInfo.input.phone} />
+                </label>
+                <label htmlFor='addressInput'>
+                    Address
+                    <input 
+                        onChange={(e) => this.handleChange().addressField(e)}
+                        id='addressInput'
+                        value={personalInfo.input.address} />
+                </label>
+                <button type='submit'>Submit</button>
+                <button className='cancel'>Cancel Input</button>
+            </form>
+        </div>
+        )
+    }
+
 }
+
+export default PersonalInfo;
