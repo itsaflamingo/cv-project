@@ -8,10 +8,12 @@
 #actions {
   width: 70vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .sectionContainer {
   display: flex;
-  height: 20vw;
+  height: 40vw;
   width: 100%;
 }
 .pop-up {

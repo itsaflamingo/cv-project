@@ -3,7 +3,7 @@ import Input from './Input'
 import Buttons from './Buttons'
 import Textarea from './Textarea'
 
-class Form extends Component {
+class ExperienceForm extends Component {
 
     constructor(props) {
         super(props)
@@ -28,4 +28,4 @@ class Form extends Component {
     }
 }
 
-export default Form;
+export default ExperienceForm;

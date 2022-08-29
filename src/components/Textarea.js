@@ -8,7 +8,6 @@ export default class Textarea extends Component {
 
     render() {
         const {info, name, section} = this.props
-        console.log(this.props)
         return(
             <label htmlFor='textarea'>
                 Description
