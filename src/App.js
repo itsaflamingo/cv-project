@@ -48,49 +48,26 @@ class App extends Component {
     const name = target.name
     const section = target.dataset.section
 
-    this.setState({
+    console.log(target, value, name, section)
+
+    this.setState(prevState => ({
+      ...prevState,
       [section]: {
+        ...prevState[section],
         input: {
+          ...prevState[section].input,
           [name]: value
         }
       }
-    })
+    }))
   }
 
-  onSubmit = () => {
-      const experience = () => {
-          this.setState({
-              experience: {
-                input: {
-                  role: '',
-                  company: '',
-                  date: '',
-                  description: ''
-                }
-            },
-            education: {
-              input : {
-                program: '',
-                school: '',
-                date: ''
-              },
-            },
-            skills: {
-              skill: {
-                text: '',
-              },
-            }
-        })
-      }
-
-      return {
-          experience, 
-      }
+  onSubmit = (e) => {
+      e.preventDefault();
   }
 
   render() {
     const {experience, education, skills} = this.state;
-    console.log(this.state)
     return (
       <div className="App">
         <div id='personal'>

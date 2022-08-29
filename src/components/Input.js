@@ -8,12 +8,12 @@ class Input extends Component {
         const {info, name, section} = this.props;
         return (
             <div className='input'>
-                        <label htmlFor='companyInput'>
+                        <label htmlFor='input'>
                             {name}
                             <input 
                                 onChange={this.props.handleChange}
                                 type='text' 
-                                id='companyInput'
+                                id='input'
                                 name={name}
                                 data-section={section}
                                 value={info} />
