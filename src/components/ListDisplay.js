@@ -8,11 +8,13 @@ export default class ListDisplay extends Component {
     render() {
         const {skills} = this.props
         return (
-            <ul>
-                {skills.map((skill) => {
-                    return <li key={skill.id}>{skill.skill}</li>
-                })}
-            </ul>
+            <div id='skills-list'>
+                <ul>
+                    {skills.map((skill) => {
+                        return <li key={skill.id}>{skill.skill}</li>
+                    })}
+                </ul>
+            </div>
         )
     }
 }

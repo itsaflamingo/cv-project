@@ -1,6 +1,5 @@
 import './App.css';
 import React, { Component } from 'react'
-import RenderForm from './components/RenderForm'
 import ExperienceForm from './components/ExperienceForm'
 import EducationForm from './components/EducationForm'
 import uniqid from 'uniqid'
@@ -8,6 +7,8 @@ import ListDisplay from './components/ListDisplay'
 import OneInputForm from './components/OneInputForm';
 import MkNewExperience from './components/mkNewExperience';
 import NewEducation from './components/NewEducation';
+import SubmitPersonal from './components/SubmitPersonal';
+import PersonalForm from './components/PersonalForm'
 
 class App extends Component {
 
@@ -22,12 +23,7 @@ class App extends Component {
           phone: '',
           address: ''
         },
-        infoObj: {
-          name: '',
-          email: '',
-          phone: '',
-          address: ''
-      }
+        personalArr: []
       },
       experience: {
           input: {
@@ -94,17 +90,11 @@ class App extends Component {
       ...prevState,
       personal: {
         ...prevState.personal,
-        infoObj: {
+        input: {
           name: this.state.personal.input.name,
           email: this.state.personal.input.email,
           phone: this.state.personal.input.phone,
           address: this.state.personal.input.address
-        },
-        input: {
-          name: '',
-          email: '',
-          phone: '',
-          address: ''
         }
       }
     }))
@@ -186,51 +176,53 @@ class App extends Component {
       <div className="App">
         <div className='page-container'>
           <div id='personal'>
-
+      
             <div id='picture'></div>
 
             <div className='sectionContainer'>
-              <div id='email' className='container'>
-                <p>Email:</p>
-                <RenderForm tag={<p>{personal.input.email}</p>}/>
-                <button className='edit' onClick={() => this.setState({showEmail : !showEmail})}>
-                  Edit
-                  </button>
-                  {showEmail && (<OneInputForm info={education.input.email} onSubmit={this.onSubmit} handleChange={this.handleChange} name='email' section='personal'/>)}
+              <div id='personal-div'>
+                  <div id='personal-heading'>
+                    <p>Contact Info</p>
+                    <button className='personal-edit' onClick={() => this.setState({showEmail : !showEmail})}>
+                    Add
+                    </button>
+                    {showEmail && (<PersonalForm info={personal} onSubmit={this.onSubmit} handleChange={this.handleChange} name='email' section='personal'/>)}
+                  </div>
+                <div id='email' className='container'>
+                  <p>Email</p>
+                  
+                  <SubmitPersonal tag={<p>{personal.input.email}</p>}/>
+                </div>
+
+                <div id='phone' className='container'>
+                  <p>Phone</p>
+                  <SubmitPersonal tag={<p>{personal.input.phone}</p>} />
+                </div>
+
+                <div id='address' className='container'>
+                  <p>Address</p>
+                  <SubmitPersonal tag={<p>{personal.input.address}</p>} />
+
+                </div>
+
+              <div className='container' id='skills'>
+                <div id='skills-heading'>
+                  <p>Skills</p>
+
+                  <button className='personal-edit' onClick={() => this.setState({showSkill : !showSkill})}>Add</button> 
+                  {showSkill && (<OneInputForm info={skills.input.skill} handleChange={this.handleChange} onSubmit={this.onSkillSubmit} name='skill' section='skills' />)}
+                </div>
+                <ListDisplay skills={skills.skillsArr} />
               </div>
 
-              <div id='phone' className='container'>
-                <p>Phone:</p>
-                <RenderForm tag={<p>{personal.input.phone}</p>}/>
-                <button className='edit' onClick={() => this.setState({showPhone : !showPhone})}>
-                  Edit
-                  </button>
-                  {showPhone && (<OneInputForm info={personal.input.phone} handleChange={this.handleChange} name='phone' section='personal'/>)}
-              </div>
-
-              <div id='address' className='container'>
-                <p>Address:</p>
-                <RenderForm tag={<p>{personal.input.address}</p>}/>
-                <button className='edit' onClick={() => this.setState({showAddress : !showAddress})}>Edit</button>
-                {showPhone && (<OneInputForm info={personal.input.address} handleChange={this.handleChange} name='address' section='personal'/>)}
-              </div>
-
-            <div className='container' id='skills'>
-              <p>Skills:</p>
-              <ListDisplay skills={skills.skillsArr} />
-              <button className='edit' onClick={() => this.setState({showSkill : !showSkill})}>Edit</button>
-              {showSkill && (<OneInputForm info={skills.input.skill} handleChange={this.handleChange} onSubmit={this.onSkillSubmit} name='skill' section='skills'/>)}
             </div>
-
             </div>
           </div>
 
           <div id='actions'>
             
             <div id='name'>
-              <RenderForm tag={<h1>{personal.input.name}</h1>}/>
-              <button className='section-edit' onClick={() => this.setState({showName: !showName})}>Edit</button>
-              {showName && (<OneInputForm info={personal.input.name} handleChange={this.handleChange} name='name' section='personal' onSubmit={this.onSubmit}/>)}
+              <SubmitPersonal tag={<h2>{personal.input.name}</h2>} />
             </div>
             <div className='sectionContainer' id='experience'>
               <div className='heading'>

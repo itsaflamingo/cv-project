@@ -15,7 +15,7 @@ class Input extends Component {
                     id='input'
                     name={name}
                     data-section={section}
-                    value={info} />
+                    value={info} /> 
             </div>
         )
     }

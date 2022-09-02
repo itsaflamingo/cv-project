@@ -20,8 +20,8 @@ class ExperienceForm extends Component {
                         <Input info={info.input.dateStart} handleChange={this.props.handleChange} name='dateStart' section='experience' />
                         <Input info={info.input.dateEnd} handleChange={this.props.handleChange} name='dateEnd' section='experience' />
                         <Textarea info={info.input.description} handleChange={this.props.handleChange} name='description' section='experience' />
-                    </div>
                     <button type='submit'>Add</button>
+                    </div>
                 </form>
             </div>
         )

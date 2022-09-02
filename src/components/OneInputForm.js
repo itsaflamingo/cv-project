@@ -11,12 +11,12 @@ export default class OneInputForm extends Component {
 
         const {info, name, section} = this.props;
         return(
-            <div className='one-input-modal'>
-                <form id='one-input' onSubmit={this.props.onSubmit}>
-                    <div>
+            <div className='modal' id='skill-modal'>
+                <form onSubmit={this.props.onSubmit}>
+                    <div id='skill-input'>
                         <Input info={info} handleChange={this.props.handleChange} name={name} section={section} />
+                        <button type='submit' className='modal-small-button'>Add</button>
                     </div>
-                    <button type='submit'>Add</button>
                 </form>
             </div>
         )

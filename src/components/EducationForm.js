@@ -18,8 +18,8 @@ class EducationForm extends Component {
                         <Input info={info.input.school} handleChange={this.props.handleChange} name='school' section='education' />
                         <Input info={info.input.dateStart} handleChange={this.props.handleChange} name='dateStart' section='education' />
                         <Input info={info.input.dateEnd} handleChange={this.props.handleChange} name='dateEnd' section='education' />
-                    </div>
                     <button type='submit'>Add</button>
+                    </div>
                 </form>
             </div>
         )
