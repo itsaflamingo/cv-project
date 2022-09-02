@@ -1,27 +1,48 @@
+body {
+  margin: 0;
+}
 .App {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+.page-container {
+  width: 70vw;
+  min-height: 100vh;
   display: flex;
 }
 #personal {
   width: 30vw;
-  height: 100vh;
+  height: 100%;
+  border: 1px solid black;
 }
 #actions {
   width: 70vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
 }
 .sectionContainer {
   display: flex;
-  height: 40vw;
+  flex-direction: column;
+  min-height: 30vh;
   width: 100%;
+  border-bottom: 1px solid black;
 }
-.pop-up {
-  height: 25vh;
-  width: 20vw;
+/* personal */
+#personal > .sectionContainer {
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+}
+.container {
+  height: 90%;
+  display: flex;
+  border-bottom: 1px solid black;
 }
 .display-info {
-  width: 20vw;
   height: 100%;
 }
 form {
@@ -31,4 +52,107 @@ form {
 button {
   height: 5vh;
   width: 6vw;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+}
+/* picture */
+#picture {
+  height: 16rem;
+  width: 15rem;
+  border-radius: 50%;
+}
+/* name */
+#name > .display-info {
+  width: 90%;
+  height: 5%;
+}
+#name {
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+h1 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+/* experience */
+.form-display {
+  display: flex;
+  flex-direction: column;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(112, 199, 250);
+  width: 22rem;
+  height: 23rem;
+  border-radius: 20px;
+  z-index: 10;
+}
+.experience {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 10px;
+}
+.experience-display, .education-display {
+  min-height: 25vh;
+}
+.new-experience, .new-education {
+  display: flex;
+  min-height: 20vh;
+  gap: 2rem;
+  padding-left: 2rem;
+}
+.section-right {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  border-left: 1px solid black;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+/* input */ 
+.input {
+  border: 1px solid black;
+}
+input {
+  width: 18rem;
+  border: none;
+  height: 2rem;
+  border: 1px solid black;
+}
+input:focus {
+  outline: none;
+}
+textarea {
+  width: 18rem;
+  border: none;
+  border-radius: 10px;
+  height: 4rem;
+}
+textarea:focus {
+  outline: none;
+}
+.buttons > button {
+  background-color: white;
+  height: 2.2rem;
+  border: 1px solid black;
+  font-size: 1rem;
 }

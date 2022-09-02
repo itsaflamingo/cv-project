@@ -9,16 +9,17 @@ export default class Textarea extends Component {
     render() {
         const {info, name, section} = this.props
         return(
-            <label htmlFor='textarea'>
-                Description
-                <textarea 
-                    onChange={this.props.handleChange}
-                    value={info}                    
-                    name={name}
-                    data-section={section}
-                    id='textarea'
-                />
-            </label>
+            <div className='input'>
+                <label htmlFor='textarea'>
+                    Description </label>
+                    <textarea 
+                        onChange={this.props.handleChange}
+                        value={info}                    
+                        name={name}
+                        data-section={section}
+                        id='textarea'
+                    />
+            </div>
         )
     }
 }

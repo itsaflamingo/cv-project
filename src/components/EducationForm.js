@@ -1,6 +1,5 @@
 import {Component } from 'react'
 import Input from './Input'
-import Buttons from './Buttons'
 
 class EducationForm extends Component {
 
@@ -12,14 +11,15 @@ class EducationForm extends Component {
 
         const {info} = this.props;
         return(
-            <div>
-                <form onSubmit={this.props.onSubmit}>
+            <div className='modal'>
+                <form onSubmit={this.props.onSubmit} section='education'>
                     <div className='experience'>
                         <Input info={info.input.program} handleChange={this.props.handleChange} name='program' section='education' />
                         <Input info={info.input.school} handleChange={this.props.handleChange} name='school' section='education' />
-                        <Input info={info.input.date} handleChange={this.props.handleChange} name='date' section='education' />
+                        <Input info={info.input.dateStart} handleChange={this.props.handleChange} name='dateStart' section='education' />
+                        <Input info={info.input.dateEnd} handleChange={this.props.handleChange} name='dateEnd' section='education' />
                     </div>
-                    <Buttons />
+                    <button type='submit'>Add</button>
                 </form>
             </div>
         )
