@@ -15,7 +15,7 @@ export default class NewEducation extends Component {
                         <div key={obj.id}>
                             <div className='new-education'>
                                 <div className='section-left'>
-                                    <h2>{obj.program}</h2>
+                                    <h3>{obj.program}</h3>
                                 </div>                      
                                 <div className='section-right'>
                                     <h3>{obj.school}</h3>

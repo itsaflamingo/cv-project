@@ -14,7 +14,7 @@ export default class OneInputForm extends Component {
             <div className='modal' id='skill-modal'>
                 <form onSubmit={this.props.onSubmit}>
                     <div id='skill-input'>
-                        <Input info={info} handleChange={this.props.handleChange} name={name} section={section} />
+                        <Input info={info} handleChange={this.props.handleChange} name={name} section={section} label='Add Skill' />
                         <button type='submit' className='modal-small-button'>Add</button>
                     </div>
                 </form>

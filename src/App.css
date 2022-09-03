@@ -43,6 +43,8 @@ body {
 }
 .section-left {
   width: 6.5rem;
+  font-size: 1.2rem;
+  color: rgb(122, 94, 94)
 }
 .section-right {
   display: flex;
@@ -81,6 +83,7 @@ body {
   border-bottom: var(--border);
   margin: 1rem;
   gap: 10px;
+  overflow: wrap;
 }
 .display-info {
   height: 100%;
@@ -107,8 +110,8 @@ body {
 #personal-heading > .modal {
   display: flex;
   position: absolute;
-  top: 37.5%;
-  left: 35.59%;
+  top: 40%;
+  left: 38%;
 }
 #skills {
   display: flex;
@@ -124,8 +127,8 @@ body {
 }
 #skill-modal {
   position: absolute;
-  left: 35.59%;
-  top: 63.75%;
+  left: 38%;
+  top: 68.75%;
   min-height: 7rem;
 }
 #skill-input {
@@ -231,8 +234,6 @@ h2 {
   min-height: 20vh;
   gap: 2rem;
   padding-left: 2rem;
-}
-.new-experience {
   margin-top: 1.5rem;
 }
 .section-edit {

@@ -132,7 +132,7 @@ class App extends Component {
       ...prevState,
       education: {
         ...prevState.education,
-        experienceArr: this.state.education.educationArr.concat({
+        educationArr: this.state.education.educationArr.concat({
           program: this.state.education.input.program,
           school: this.state.education.input.school,
           dateStart: this.state.education.input.dateStart,
@@ -223,7 +223,7 @@ class App extends Component {
           <div id='actions'>
             
             <div id='name'>
-              <SubmitPersonal tag={<h2>{personal.input.name}</h2>} />
+              <SubmitPersonal tag={<h2>{personal.input.name.toUpperCase()}</h2>} />
             </div>
             <div className='sectionContainer' id='experience'>
               <div className='heading'>
