@@ -13,9 +13,9 @@ export default class MkNewExperience extends Component {
                 {experience.experienceArr.map((obj) => {
                     return (
                         <div key={obj.id} className='new-experience'>
-                            <div className='section-left'><h2>{obj.role}</h2></div>
+                            <div className='section-left'><h3>{obj.role}</h3></div>
                             <div className='section-right'>
-                                <h3>{obj.company}</h3>
+                                <h4>{obj.company}</h4>
                                 <p>{obj.dateStart}</p>
                                 <p>{obj.dateEnd}</p>
                                 <p>{obj.description}</p>

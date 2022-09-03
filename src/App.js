@@ -53,10 +53,7 @@ class App extends Component {
         },
         skillsArr: []
       },
-      showName: false,
-      showEmail: false,
-      showPhone: false,
-      showAddress: false,
+      showContact: false,
       showSkill: false,
       showEducation: false,
       showExperience: false,    
@@ -170,46 +167,50 @@ class App extends Component {
   }
 
   render() {
-    const {experience, education, skills, personal, showEmail, showPhone, showName, showAddress, showEducation, showExperience, showSkill} = this.state;
+    const {experience, education, skills, personal, showContact,showEducation, showExperience, showSkill} = this.state;
 
     return (
       <div className="App">
         <div className='page-container'>
           <div id='personal'>
-      
-            <div id='picture'></div>
+
+            <div id='picture-container'>
+              <div id='picture-frame'>
+                <div id='picture'></div>
+              </div>
+            </div>
 
             <div className='sectionContainer'>
               <div id='personal-div'>
                   <div id='personal-heading'>
-                    <p>Contact Info</p>
-                    <button className='personal-edit' onClick={() => this.setState({showEmail : !showEmail})}>
-                    Add
+                    <p>CONTACT INFO</p>
+                    <button className='personal-edit' onClick={() => this.setState({showContact : !showContact})}>
+                    ADD
                     </button>
-                    {showEmail && (<PersonalForm info={personal} onSubmit={this.onSubmit} handleChange={this.handleChange} name='email' section='personal'/>)}
+                    {showContact && (<PersonalForm info={personal} onSubmit={this.onSubmit} handleChange={this.handleChange} name='email' section='personal'/>)}
                   </div>
                 <div id='email' className='container'>
-                  <p>Email</p>
+                  <p>EMAIL</p>
                   
                   <SubmitPersonal tag={<p>{personal.input.email}</p>}/>
                 </div>
 
                 <div id='phone' className='container'>
-                  <p>Phone</p>
+                  <p>PHONE</p>
                   <SubmitPersonal tag={<p>{personal.input.phone}</p>} />
                 </div>
 
                 <div id='address' className='container'>
-                  <p>Address</p>
+                  <p>ADDRESS</p>
                   <SubmitPersonal tag={<p>{personal.input.address}</p>} />
 
                 </div>
 
               <div className='container' id='skills'>
                 <div id='skills-heading'>
-                  <p>Skills</p>
+                  <p>SKILLS</p>
 
-                  <button className='personal-edit' onClick={() => this.setState({showSkill : !showSkill})}>Add</button> 
+                  <button className='personal-edit' onClick={() => this.setState({showSkill : !showSkill})}>ADD</button> 
                   {showSkill && (<OneInputForm info={skills.input.skill} handleChange={this.handleChange} onSubmit={this.onSkillSubmit} name='skill' section='skills' />)}
                 </div>
                 <ListDisplay skills={skills.skillsArr} />
@@ -226,8 +227,8 @@ class App extends Component {
             </div>
             <div className='sectionContainer' id='experience'>
               <div className='heading'>
-                <p>Experience</p>
-                <button className='section-edit' onClick={() => this.setState({showExperience: !showExperience})}>Add</button>
+                <p>EXPERIENCE</p>
+                <button className='section-edit' onClick={() => this.setState({showExperience: !showExperience})}>ADD</button>
                 {showExperience && (<ExperienceForm info={experience} onSubmit={this.onSubmitExperience} handleChange={this.handleChange}/>)}
               </div>
               <div className='experience-display'>
@@ -236,8 +237,8 @@ class App extends Component {
             </div>
             <div className='sectionContainer' id='education'>
               <div className='heading'>
-                  <p>Education</p>
-                  <button className='section-edit' onClick={() => this.setState({showEducation: !showEducation})}>Add</button>
+                  <p>EDUCATION</p>
+                  <button className='section-edit' onClick={() => this.setState({showEducation: !showEducation})}>ADD</button>
                   {showEducation && (<EducationForm info={education} onSubmit={this.onSubmitEducation} handleChange={this.handleChange}/>)}
                 </div>
             <div className='education-display'>

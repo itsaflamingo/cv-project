@@ -1,28 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Lekton&family=Montserrat:ital,wght@0,100;0,400;1,400;1,900&display=swap');
+* {
+  font-family: 'Lekton', sans-serif;
+  font-weight: 700;
+}
 body {
   margin: 0;
+  --dark-brown: rgb(73, 63, 57);
+  --border: 1px solid var(--dark-brown);
+  --border-bottom: 3px solid var(--dark-brown);
+  --med-brown: rgb(126, 97, 79);
+  display: flex;
+  justify-content: center;
+
 }
 .App {
   display: flex;
   justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  width: 100vw;
+  width: 55vw;
   margin: 0;
+  background-color: rgb(237, 228, 216);
 }
 .page-container {
-  width: 50vw;
-  min-height: 100vh;
+  width: 52vw;
+  height: 95vh;
   display: flex;
-}
-#personal {
-  width: 15vw;
-  height: 100%;
-  border: 1px solid black;
-}
-#actions {
-  width: 35vw;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid var(--dark-brown);
 }
 .sectionContainer {
   display: flex;
@@ -31,7 +35,40 @@ body {
   width: 91%;
   margin: 0 1rem;
 }
-/* personal */
+/* ACTIONS */
+#actions {
+  width: 35vw;
+  display: flex;
+  flex-direction: column;
+}
+.section-left {
+  width: 6.5rem;
+}
+.section-right {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  border-left: var(--border);
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+/* PERSONAL */
+#personal {
+  width: 20vw;
+  height: 100%;
+  border-right: var(--border);
+}
 #personal > .sectionContainer {
   display: flex;
   flex-direction: column;
@@ -41,8 +78,9 @@ body {
   min-height: 20%;
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid black;
-  margin: 0 1rem;
+  border-bottom: var(--border);
+  margin: 1rem;
+  gap: 10px;
 }
 .display-info {
   height: 100%;
@@ -54,7 +92,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 0 1rem;
-  border-bottom: 1px solid black;
+  border-bottom: var(--border);
   align-items: center;
 }
 .personal-info {
@@ -98,10 +136,6 @@ body {
   gap: 10px;
   margin: 0.5rem;
 }
-form {
-  height: 100%;
-  width: 100%;
-}
 .personal-edit {
   height: 2rem;
   background-color: white;
@@ -109,25 +143,28 @@ form {
   width: 3rem;
 }
 .personal-display {
-  min-height: 3rem;
+  min-height: 1rem;
+  font-size: 12px;
+}
+#name > .personal-display {
+  margin: 0 1rem;
+}
+/* FORM */
+form {
+  height: 100%;
+  width: 100%;
 }
 button {
   height: 5vh;
   width: 6vw;
   background-color: white;
-  border: 1px solid black;
+  border: var(--border);
+  color: var(--dark-brown);
+  font-size: 1rem;
 }
-.heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid black;
-}
-/* picture */
-#picture {
-  height: 16rem;
-  width: 15rem;
-  border-radius: 50%;
+button:hover {
+  background-color: var(--dark-brown);
+  color: white;
 }
 /* name */
 #name > .display-info {
@@ -138,13 +175,21 @@ button {
   height: 10%;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid black;
 }
-h1 {
+h2 {
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: 700;
+  color: var(--med-brown);
 }
-/* experience */
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--border-bottom);  
+  border-top: var(--border);
+  font-size: 1.2rem;
+}
+/* EXPERIENCE */
 .form-display {
   display: flex;
   flex-direction: column;
@@ -152,10 +197,11 @@ h1 {
 .modal {
   display: flex;
   flex-direction: column;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--dark-brown);
   width: 15rem;
   z-index: 10;
-  border: 1px solid black;
+  border: var(--border);
+  color: rgb(252, 243, 220)
 }
 #experience > .heading > .modal {
   position: absolute;
@@ -175,7 +221,7 @@ h1 {
 }
 .experience > button {
   background-color: white;
-  border: 1px solid black;
+  border: var(--border)
 }
 .experience-display, .education-display {
   min-height: 25vh;
@@ -186,52 +232,33 @@ h1 {
   gap: 2rem;
   padding-left: 2rem;
 }
-.section-right {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-  border-left: 1px solid black;
-  padding-left: 2rem;
-  margin-bottom: 2rem;
-}
-.input {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5px;
+.new-experience {
+  margin-top: 1.5rem;
 }
 .section-edit {
   background-color: white;
-  border: 1px solid black;
-
+  border: var(--border);
 }
-/* education */ 
+/* EDUCATION */ 
 #education > .heading > .modal {
   position: absolute;
   top: 47.4%;
   left: 66.9%;
   min-height: 21.6rem;
 }
-/* input */ 
+/* INPUT */ 
 input {
   width: 12rem;
-  border: none;
   height: 2rem;
-  border: 1px solid black;
+  border: var(--border);
 }
 input:focus {
   outline: none;
 }
 textarea {
   width: 12rem;
-  border: none;
   height: 4rem;
-  border: 1px solid black;
+  border: var(--border);
 }
 textarea:focus {
   outline: none;
@@ -239,6 +266,48 @@ textarea:focus {
 .buttons > button {
   background-color: white;
   height: 2.2rem;
-  border: 1px solid black;
+  border: var(--border);
   font-size: 1rem;
 }
+p {
+  margin: 0;
+  color: var(--dark-brown);
+}
+/* PHOTO */
+#picture-container {
+  height: 16rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+#picture {
+  height: 32vh;
+  width: 13.35vw;
+  position: absolute;
+  border: 1px solid var(--dark-brown);
+  top: 3.5%;
+  left: 26.6%;
+  z-index: 10;
+  background-image: url(./img/girl-photo.jpg);
+  background-size: cover;
+  background-position: center;
+}
+#picture-frame {
+  height: 11rem;
+  width: 15rem;
+  border: 1px solid var(--dark-brown);
+}
+#picture:hover {
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.47);
+}
+#picture:hover::after {
+  content: 'ADD PICTURE';
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding-top: 50%;
+  font-size: 1.8rem;
+}
+
