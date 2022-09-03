@@ -53,6 +53,11 @@ class App extends Component {
         },
         skillsArr: []
       },
+      picture: {
+        urlInput: '',
+        url: ''
+      },
+      showAddPic: false,
       showContact: false,
       showSkill: false,
       showEducation: false,
@@ -166,8 +171,26 @@ class App extends Component {
     }))
   }
 
+  picOnChange = (e) => {
+    this.setState({
+      picture: {
+        urlInput: e.target.value
+      }
+    })
+  }
+
+  changePicture = (e) => {
+    e.preventDefault()
+    this.setState({
+      picture: {
+        url: this.state.picture.urlInput,
+        urlInput: ''
+      }
+    })
+  }
+
   render() {
-    const {experience, education, skills, personal, showContact,showEducation, showExperience, showSkill} = this.state;
+    const {experience, education, skills, personal, showContact,showEducation, showExperience, showSkill, showAddPic, picture} = this.state;
 
     return (
       <div className="App">
@@ -176,7 +199,10 @@ class App extends Component {
 
             <div id='picture-container'>
               <div id='picture-frame'>
-                <div id='picture'></div>
+                <div id='picture' style={{backgroundImage: `url(${picture.url})`}} onClick={() => this.setState({showAddPic : !showAddPic})}></div>
+              </div>
+              <div>
+                {showAddPic && (<OneInputForm info={picture.urlInput} onSubmit={this.changePicture} handleChange={this.picOnChange} label='Add Photo URL' id='pic-input' />)}
               </div>
             </div>
 
@@ -211,7 +237,7 @@ class App extends Component {
                   <p>SKILLS</p>
 
                   <button className='personal-edit' onClick={() => this.setState({showSkill : !showSkill})}>ADD</button> 
-                  {showSkill && (<OneInputForm info={skills.input.skill} handleChange={this.handleChange} onSubmit={this.onSkillSubmit} name='skill' section='skills' />)}
+                  {showSkill && (<OneInputForm info={skills.input.skill} handleChange={this.handleChange} onSubmit={this.onSkillSubmit} name='skill' section='skills' label='Add Skill' id='skill-input' />)}
                 </div>
                 <ListDisplay skills={skills.skillsArr} />
               </div>
