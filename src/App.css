@@ -93,6 +93,7 @@ body {
 }
 #personal-heading {
   display: flex;
+  position: relative;
   justify-content: space-between;
   margin: 0 1rem;
   border-bottom: var(--border);
@@ -110,8 +111,8 @@ body {
 #personal-heading > .modal {
   display: flex;
   position: absolute;
-  top: 40%;
-  left: 38%;
+  top: 100%;
+  left: 80%;
 }
 #skills {
   display: flex;
@@ -120,6 +121,7 @@ body {
 } 
 #skills-heading {
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -138,14 +140,13 @@ body {
 }
 #skill-input {
   position: absolute;
-  left: 37.5%;
-  top: 67.9%;
+  left: 80%;
+  top: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin: 0.5rem;
 }
 #pic-input {
   position: absolute;
@@ -204,6 +205,7 @@ h2 {
 }
 .heading {
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
   border-bottom: var(--border-bottom);  
@@ -226,8 +228,8 @@ h2 {
 }
 #experience > .heading > .modal {
   position: absolute;
-  top: 15.85%;
-  left: 66.9%;
+  top: 100%;
+  left: 80%;
   align-items: center;
   justify-content: center;
   min-height: 28rem;
@@ -261,8 +263,8 @@ h2 {
 /* EDUCATION */ 
 #education > .heading > .modal {
   position: absolute;
-  top: 68.4%;
-  left: 68%;
+  top: 100%;
+  left: 80%;
   min-height: 21.6rem;
 }
 /* INPUT */ 
@@ -302,7 +304,7 @@ p {
   margin-top: 1rem;
 }
 #picture {
-  height: 32vh;
+  height: 30vh;
   width: 13.35vw;
   position: absolute;
   border: 1px solid var(--dark-brown);

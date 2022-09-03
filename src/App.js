@@ -277,7 +277,7 @@ class App extends Component {
                   {showEducation && (<EducationForm info={education} onSubmit={this.onSubmitEducation} handleChange={this.handleChange}/>)}
                 </div>
             <div className='education-display'>
-              <NewEducation education={education}/>
+              <NewEducation education={education} />
             </div>
             </div>
           </div>
