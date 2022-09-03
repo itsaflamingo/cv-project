@@ -21,7 +21,8 @@ class App extends Component {
           name: '',
           email: '',
           phone: '',
-          address: ''
+          address: '',
+          id: uniqid()
         },
         personalArr: []
       },
@@ -92,11 +93,19 @@ class App extends Component {
       ...prevState,
       personal: {
         ...prevState.personal,
-        input: {
-          name: this.state.personal.input.name,
+        personalArr: {
+          name: this.state.personal.input.name.toUpperCase(),
           email: this.state.personal.input.email,
           phone: this.state.personal.input.phone,
-          address: this.state.personal.input.address
+          address: this.state.personal.input.address,
+          id: this.state.personal.input.id 
+        },
+        input: {
+          name: '',
+          email: '',
+          phone: '',
+          address: '',
+          id: uniqid()
         }
       }
     }))
@@ -218,17 +227,17 @@ class App extends Component {
                 <div id='email' className='container'>
                   <p>EMAIL</p>
                   
-                  <SubmitPersonal tag={<p>{personal.input.email}</p>}/>
+                  <SubmitPersonal tag={<p>{personal.personalArr.email}</p>}/>
                 </div>
 
                 <div id='phone' className='container'>
                   <p>PHONE</p>
-                  <SubmitPersonal tag={<p>{personal.input.phone}</p>} />
+                  <SubmitPersonal tag={<p>{personal.personalArr.phone}</p>} />
                 </div>
 
                 <div id='address' className='container'>
                   <p>ADDRESS</p>
-                  <SubmitPersonal tag={<p>{personal.input.address}</p>} />
+                  <SubmitPersonal tag={<p>{personal.personalArr.address}</p>} />
 
                 </div>
 
@@ -249,7 +258,7 @@ class App extends Component {
           <div id='actions'>
             
             <div id='name'>
-              <SubmitPersonal tag={<h2>{personal.input.name.toUpperCase()}</h2>} />
+              <SubmitPersonal tag={<h2>{personal.personalArr.name}</h2>} />
             </div>
             <div className='sectionContainer' id='experience'>
               <div className='heading'>
