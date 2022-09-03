@@ -127,6 +127,11 @@ body {
   width: 100%;
   border-bottom: 1px solid black;
 }
+.skill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 #one-input-modal {
   min-height: 9rem;
 }
@@ -147,6 +152,13 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+.remove-skill {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #pic-input {
   position: absolute;
@@ -293,6 +305,10 @@ textarea:focus {
 p {
   margin: 0;
   color: var(--dark-brown);
+}
+/* DELETE */
+.new-experience > *, .new-education > *{
+  pointer-events: none;
 }
 /* PHOTO */
 #picture-container {

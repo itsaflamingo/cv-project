@@ -11,7 +11,12 @@ export default class ListDisplay extends Component {
             <div id='skills-list'>
                 <ul>
                     {skills.map((skill) => {
-                        return <li key={skill.id}>{skill.skill}</li>
+                        return <li key={skill.id} id={skill.id}>
+                            <div className='skill'>
+                                {skill.skill}
+                                <button className='remove-skill' onClick={this.props.onClick} id={skill.id}>X</button>
+                            </div>
+                        </li>
                     })}
                 </ul>
             </div>

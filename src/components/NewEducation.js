@@ -13,7 +13,7 @@ export default class NewEducation extends Component {
                 {education.educationArr.map((obj) => {
                     return (
                         <div key={obj.id}>
-                            <div className='new-education'>
+                            <div className='new-education' id={obj.id} onClick={this.props.onClick}>
                                 <div className='section-left'>
                                     <h3>{obj.program}</h3>
                                 </div>                      

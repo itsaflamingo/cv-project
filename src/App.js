@@ -198,6 +198,12 @@ class App extends Component {
     })
   }
 
+  delete = (e) => {
+    const id = e.target.id;
+    const target = document.getElementById(id);
+    target.remove()
+  }
+
   render() {
     const {experience, education, skills, personal, showContact,showEducation, showExperience, showSkill, showAddPic, picture} = this.state;
 
@@ -238,7 +244,6 @@ class App extends Component {
                 <div id='address' className='container'>
                   <p>ADDRESS</p>
                   <SubmitPersonal tag={<p>{personal.personalArr.address}</p>} />
-
                 </div>
 
               <div className='container' id='skills'>
@@ -248,7 +253,7 @@ class App extends Component {
                   <button className='personal-edit' onClick={() => this.setState({showSkill : !showSkill})}>ADD</button> 
                   {showSkill && (<OneInputForm info={skills.input.skill} handleChange={this.handleChange} onSubmit={this.onSkillSubmit} name='skill' section='skills' label='Add Skill' id='skill-input' />)}
                 </div>
-                <ListDisplay skills={skills.skillsArr} />
+                <ListDisplay skills={skills.skillsArr} onClick={this.delete} />
               </div>
 
             </div>
@@ -267,7 +272,7 @@ class App extends Component {
                 {showExperience && (<ExperienceForm info={experience} onSubmit={this.onSubmitExperience} handleChange={this.handleChange}/>)}
               </div>
               <div className='experience-display'>
-                <NewExperience experience={experience}/>
+                <NewExperience experience={experience} onClick={this.delete} />
               </div>
             </div>
             <div className='sectionContainer' id='education'>
@@ -277,7 +282,7 @@ class App extends Component {
                   {showEducation && (<EducationForm info={education} onSubmit={this.onSubmitEducation} handleChange={this.handleChange}/>)}
                 </div>
             <div className='education-display'>
-              <NewEducation education={education} />
+              <NewEducation education={education} onClick={this.delete} />
             </div>
             </div>
           </div>

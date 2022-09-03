@@ -12,7 +12,7 @@ export default class NewExperience extends Component {
             <div className='experience-container'>
                 {experience.experienceArr.map((obj) => {
                     return (
-                        <div key={obj.id} className='new-experience'>
+                        <div key={obj.id} className='new-experience' id={obj.id} onClick={this.props.onClick}>
                             <div className='section-left'><h3>{obj.role}</h3></div>
                             <div className='section-right'>
                                 <h4>{obj.company}</h4>
