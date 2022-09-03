@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+This is a CV application generator created using React. It is written using React classes, JavaScript, HTML and CSS.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![alt text](./src/img/README.png)
 
-## Available Scripts
+How the page is structured: 
 
-In the project directory, you can run:
+App.js: Contains the backbone of the code. All modules lead back to App.js. In it I declare the state, where I use nested objects and arrays. I also declare all event handlers, and pass them into other modules as props. I declared a separate event handler for each section, because each section was a little different from the other (the personal section required specific input types, the experience section required a description element, etc.). I saved state as a series of nested objects because I felt it was more intuitive that way. However, setState() does not work for nested objects out of the box, so I had to pass the state from one object layer to another within the event handlers. 
 
-### `npm start`
+EducationForm.js/ExperienceForm.js: Contains the form layout & required inputs of each section. Each form takes the necessary props (onChange, onSubmit, object) and passes it onto my Input module, which will render the Input and send back the information as specified by these props. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Input.js: This is my most used module, as I was able to change the type of information taken depending on where in the document it is called, due to a change in props. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+NewEducation.js/NewExperience.js: These are the files which dealt with rendering a new experience or education section when the form was submitted. In both I used .map on the array saved within each section in state, which contains a series of objects, and render each object separately. I initially tried using various arrays for each input, but the code was messier and much less intuitive, and I had trouble rendering the information in the format that I wanted. This format is repeated as well with the personal section & the skills section. 
 
-### `npm test`
+Form change & submit pattern: 
+1. onChange stores form changes into each object's input section. 
+2. onSubmit stores that input inside the section's array
+3. Object's input section is reset
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+How to Improve: I think App.js could have less code if I bundled the code I have, and there might be a way for me to re-use the form-rendering code, as well as the form-creating code instead of having separate modules for both of them since they are very similar. I might also have been able to only have one input section (instead of one per object) and just stored the value from the keys inside different arrays, whose keys would be specific to that section.  
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

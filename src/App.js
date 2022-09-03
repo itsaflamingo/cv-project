@@ -5,7 +5,7 @@ import EducationForm from './components/EducationForm'
 import uniqid from 'uniqid'
 import ListDisplay from './components/ListDisplay'
 import OneInputForm from './components/OneInputForm';
-import MkNewExperience from './components/mkNewExperience';
+import NewExperience from './components/NewExperience';
 import NewEducation from './components/NewEducation';
 import SubmitPersonal from './components/SubmitPersonal';
 import PersonalForm from './components/PersonalForm'
@@ -267,7 +267,7 @@ class App extends Component {
                 {showExperience && (<ExperienceForm info={experience} onSubmit={this.onSubmitExperience} handleChange={this.handleChange}/>)}
               </div>
               <div className='experience-display'>
-                <MkNewExperience experience={experience}/>
+                <NewExperience experience={experience}/>
               </div>
             </div>
             <div className='sectionContainer' id='education'>
