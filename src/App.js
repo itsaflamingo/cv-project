@@ -9,6 +9,7 @@ import NewExperience from './components/NewExperience';
 import NewEducation from './components/NewEducation';
 import SubmitPersonal from './components/SubmitPersonal';
 import PersonalForm from './components/PersonalForm'
+import PictureContainer from './components/PictureContainer';
 
 class App extends Component {
 
@@ -58,7 +59,6 @@ class App extends Component {
         urlInput: '',
         url: ''
       },
-      showAddPic: false,
       showContact: false,
       showSkill: false,
       showEducation: false,
@@ -205,21 +205,14 @@ class App extends Component {
   }
 
   render() {
-    const {experience, education, skills, personal, showContact,showEducation, showExperience, showSkill, showAddPic, picture} = this.state;
+    const {experience, education, skills, personal, showContact,showEducation, showExperience, showSkill, picture} = this.state;
 
     return (
       <div className="App">
         <div className='page-container'>
           <div id='personal'>
 
-            <div id='picture-container'>
-              <div id='picture-frame'>
-                <div id='picture' style={{backgroundImage: `url(${picture.url})`}} onClick={() => this.setState({showAddPic : !showAddPic})}></div>
-              </div>
-              <div>
-                {showAddPic && (<OneInputForm info={picture.urlInput} onSubmit={this.changePicture} handleChange={this.picOnChange} label='Add Photo URL' id='pic-input' />)}
-              </div>
-            </div>
+            <PictureContainer picture={picture} changePicture={this.changePicture} picOnChange = {this.picOnChange} />
 
             <div className='sectionContainer'>
               <div id='personal-div'>
