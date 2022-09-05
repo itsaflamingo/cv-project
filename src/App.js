@@ -60,11 +60,7 @@ class App extends Component {
       picture: {
         urlInput: '',
         url: ''
-      },
-      showContact: false,
-      showSkill: false,
-      showEducation: false,
-      showExperience: false,    
+      }
     }
 
   }
@@ -207,7 +203,7 @@ class App extends Component {
   }
 
   render() {
-    const {experience, education, skills, personal, showContact, showEducation, showExperience, showSkill, picture} = this.state;
+    const {experience, education, skills, personal, picture} = this.state;
 
     return (
       <div className="App">
