@@ -1,6 +1,5 @@
 import './App.css';
 import React, { Component } from 'react';
-import EducationForm from './components/EducationForm';
 import uniqid from 'uniqid';
 import ListDisplay from './components/ListDisplay';
 import NewExperience from './components/NewExperience';
